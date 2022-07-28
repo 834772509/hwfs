@@ -1,0 +1,249 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* 自适应界面
+低于 544px 隐藏 修改时间 列
+低于 384px 隐藏 大小 列
+*/
+@media screen and (max-width: 544px) {
+  #view.view-details .date {
+    display: none;
+  }
+  #view.view-details .label {
+    margin-right: 64px;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  #view.view-details .label {
+    margin-right: 4px;
+  }
+  #view.view-details .date {
+    display: none;
+  }
+  #view.view-details .size {
+    display: none;
+  }
+}
+
+/* 过渡动画 */
+@keyframes slideToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#sidebar {
+  animation: slideToRight 0.2s ease;
+}
+
+/* 上传列表 */
+.upprogress {
+  width: 0%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  z-index: 0;
+  background-color: #2a82e4;
+  opacity: 0.1;
+  transition: background-color, width 0.3s ease-out;
+}
+
+#upbody {
+  position: fixed;
+  width: 30%;
+  height: 40%;
+  bottom: 20px;
+  right: 32px;
+
+  overflow-y: auto;
+  border-radius: 5px 5px 0 0;
+  background: #fff;
+
+  box-shadow: 0px 0px 7px 1px rgba(87, 87, 87, 0.31);
+  z-index: 99;
+  padding-bottom: 40px;
+}
+
+#upbody-min {
+  width: 374px;
+  height: 42;
+  background: #fff;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 7px 1px rgba(87, 87, 87, 0.31);
+}
+
+#upbody .upherd,
+#upbody-min .upherd {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  padding: 10px 10px 10px 18px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#upbody .upcontent {
+  width: 100%;
+  height: 80%;
+  background-color: #fafafa;
+}
+
+#upbody .upcontent .upitem {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 10px;
+  height: 50px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#upbody .upcontent .upitem .action {
+  margin-top: 15px;
+  width: 22px;
+  height: 22px;
+  margin-left: 3px;
+  padding: 3px;
+  color: #fff;
+  cursor: pointer;
+  fill: #fff;
+}
+
+#upbody .upcontent .upitem .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+  /* background-color: rgba(0, 0, 0, 0.65); */
+}
+
+#upbody .upcontent .upitem .upinfo {
+  width: 100%;
+  padding-right: 8px;
+  margin-top: 10px;
+}
+
+#upbody .upcontent .upitem .upinfo .upname {
+  margin-bottom: 5px;
+  font-weight: 550;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #333;
+}
+
+#upbody .upcontent .upitem .upinfo .upstate {
+  color: #757575;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 1;
+}
+#upbody .upcontent .upitem .upprogress {
+  width: 0%;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  height: 70px;
+  z-index: 0;
+  background-color: #2a82e4;
+  opacity: 0.1;
+  transition: background-color, width 0.3s ease-out;
+}
+
+#upbody .upfoter {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(89, 125, 252);
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+#upbody .upfoter {
+  background-color: #fff;
+}
+
+/* 右键菜单 */
+#contextmenu {
+  position: absolute;
+  padding: 5px 0;
+  margin: 0;
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px 0 hsla(0, 0%, 58.8%, 0.2);
+  list-style: none;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 2800;
+}
+
+.contextmenu-item {
+  padding: 5px 20px;
+  line-height: 1;
+  color: #333;
+}
+
+.contextmenu-item :hover {
+  color: #fff;
+  background-color: #46a0fc;
+}
+
+#view.view-details.view-size-40 .item .label {
+  line-height: 54px !important;
+}
+#view.view-details.view-size-40 .item .date {
+  line-height: 54px !important;
+}
+#view.view-details.view-size-40 .item .size {
+  line-height: 54px !important;
+}
+#view.view-details.view-size-40 .square {
+  width: 40px !important;
+  height: 40px !important;
+}
+#view.view-details.view-size-40 .square img {
+  width: 40px !important;
+  height: 40px !important;
+}
+#view.view-details.view-size-40 .label {
+  margin-left: 72px !important;
+}
+#view.view-grid.view-size-40 .item .label {
+  line-height: 40px !important;
+}
+#view.view-grid.view-size-40 .square {
+  width: 40px !important;
+  height: 40px !important;
+}
+#view.view-grid.view-size-40 .square img {
+  width: 40px !important;
+  height: 40px !important;
+}
+#view.view-icons.view-size-40 .item {
+  width: 107px !important;
+}
+#view.view-icons.view-size-40 .landscape {
+  width: 107px !important;
+  height: 80px !important;
+}
+#view.view-icons.view-size-40 .landscape img {
+  width: 80px !important;
+  height: 80px !important;
+}
+#view.view-icons.view-size-40 .landscape .thumb {
+  width: 107px !important;
+}

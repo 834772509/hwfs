@@ -1,0 +1,123 @@
+
+#pv-txt-text {
+	max-width: 960px;
+	text-align: left;
+	background-color: #fff;
+	margin: 0 auto;
+	padding: 8px;
+	overflow: auto;
+
+	box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+
+	&.highlighted {
+		word-break: break-all;
+
+		tr:hover {
+			background-color: rgba(0,0,0,0.05);
+
+			.nr {
+				color: #333;
+			}
+		}
+
+		td {
+			vertical-align: top;
+			font-family: @font-family-mono;
+			font-size: 16px;
+			line-height: 1.2em;
+			color: #999;
+			word-break: normal;
+
+			&.nr {
+				text-align: right;
+				padding: 0 8px 0 4px;
+			}
+
+			&.line {
+				width: 100%;
+				padding: 0 4px 0 8px;
+			}
+
+			code {
+				font-family: @font-family-mono;
+				font-size: 16px;
+				line-height: 1.2em;
+			}
+		}
+
+		.plain {
+			color: #000;
+		}
+		.comments {
+			color: #008200;
+		}
+		.string {
+			color: #1111ff;
+		}
+		.keyword {
+			color: #006699;
+			font-weight: bold;
+		}
+		.preprocessor {
+			color: #999;
+		}
+		.variable {
+			color: #aa7700;
+		}
+		.value {
+			color: #009900;
+		}
+		.functions {
+			color: #ff1493;
+		}
+		.constants {
+			color: #0066cc;
+		}
+		.script {
+			color: #006699;
+			font-weight: bold;
+		}
+		.color1 {
+			color: #999;
+		}
+		.color2 {
+			color: #ff1493;
+		}
+		.color3 {
+			color: #ff1111;
+		}
+
+		a, a:active, a:visited {
+			color: #2080FF;
+			text-decoration: none;
+			cursor: pointer;
+
+			&:hover {
+				color: #68A9FF;
+			}
+		}
+	}
+
+
+	&.markdown {
+		font-size: 16px;
+		padding: 8px 24px;
+
+		a, a:active, a:visited {
+			color: #2080FF;
+			text-decoration: none;
+			cursor: pointer;
+
+			&:hover {
+				color: #68A9FF;
+			}
+		}
+
+		pre, code {
+			font-family: @font-family-mono;
+		}
+		code {
+			color: #008200;
+		}
+	}
+}

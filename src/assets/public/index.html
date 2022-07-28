@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FileServer</title>
+    <link rel="icon" href="favicon.ico" />
+    __SLOT__
+  </head>
+
+  <body class="index" id="root">
+    <!-- 顶部工具栏 -->
+    <div id="topbar">
+      <div id="toolbar">
+        <div id="sidebar-toggle" class="tool">
+          <img src="/src/img/ui/sidebar.svg" alt="sidebar" />
+        </div>
+        <div id="download" class="tool">
+          <a href="?zip" download>
+            <img src="/src/img/ui/download.svg" alt="download" />
+          </a>
+        </div>
+        <div id="upload" class="tool">
+          <label>
+            <img src="/src/img/ui/upload.svg" alt="upload" />
+            <input type="file" class="hidden" name="upload" multiple />
+          </label>
+        </div>
+        <div id="search" class="tool">
+          <img src="/src/img/ui/search.svg" alt="search" />
+          <input class="l10n_search" type="text" value="" placeholder="搜索" />
+        </div>
+      </div>
+
+      <!-- 顶部导航栏 -->
+      <div id="flowbar">
+        <div id="crumbbar">
+          <a class="crumb active" href="/">
+            <!-- <img class="sep" src="/src/img/ui/crumb.svg" alt=">" /> -->
+            <span class="label">FileServer</span>
+          </a>
+        </div>
+      </div>
+      <a
+        id="backlink"
+        href="https://larsjung.de/h5ai/"
+        title="powered by h5ai - https://larsjung.de/h5ai/"
+        target="_blank"
+      >
+        <div>powered</div>
+        <div>by h5ai</div>
+      </a>
+    </div>
+
+    <!-- 主体内容 -->
+    <div id="mainrow">
+      <!-- 文件列表 -->
+      <div id="content">
+        <div id="content-header" class="hidden"></div>
+        <div id="view" class="view-details view-size-20">
+          <ul id="items" class="clearfix">
+            <li class="header">
+              <a class="icon"></a>
+              <!-- 排序-文件名 -->
+              <a class="label ascending">
+                <span class="l10n-name">文件名</span>
+                <img src="/src/img/ui/sort.svg" class="sort" alt="sort order" />
+              </a>
+              <!-- 排序-修改时间 -->
+              <a class="date">
+                <img src="/src/img/ui/sort.svg" class="sort" alt="sort order" />
+                <span class="l10n-lastModified">修改时间</span>
+              </a>
+              <!-- 排序-大小 -->
+              <a class="size">
+                <img src="/src/img/ui/sort.svg" class="sort" alt="sort order" />
+                <span class="l10n-size">大小</span>
+              </a>
+            </li>
+            <!-- 返回上一级按钮 -->
+            <!-- 文件列表 -->
+          </ul>
+
+          <!-- 目录为空时显示的内容 -->
+          <div id="view-hint" class="l10n-empty hidden">空文件夹</div>
+        </div>
+      </div>
+
+      <!-- 侧边栏设置菜单 -->
+      <div id="sidebar" class="hidden">
+        <div id="viewmode-settings" class="block">
+          <h1 class="l10n-view">视图</h1>
+          <!-- 视图选项按钮 -->
+          <div id="viewmode-details" class="button mode active">
+            <img src="/src/img/ui/view-details.svg" alt="viewmode-details" />
+          </div>
+          <div id="viewmode-grid" class="button mode">
+            <img src="/src/img/ui/view-grid.svg" alt="viewmode-grid" />
+          </div>
+          <div id="viewmode-icons" class="button mode">
+            <img src="/src/img/ui/view-icons.svg" alt="viewmode-icons" />
+          </div>
+          <!-- 视图大小滑块 -->
+          <input
+            class="hidden"
+            id="viewmode-size"
+            type="range"
+            min="0"
+            max="9"
+            value="0"
+          />
+        </div>
+        <div class="block">
+          <h1 class="l10n-info">信息</h1>
+          <div id="view-info" class="button view active">
+            <img src="/src/img/ui/info-toggle.svg" alt="view-info" />
+          </div>
+        </div>
+        <div class="block">
+          <h1 class="l10n-language">语言</h1>
+          <div class="select">
+            <select id="langs">
+              <option value="en" class="en">English</option>
+              <option value="es" class="es">español</option>
+              <option value="ru" class="ru">русский</option>
+              <option value="ja" class="ja">日本語</option>
+              <option value="zh_cn" class="zh-cn" selected>简体中文</option>
+              <option value="zh_tw" class="zh_tw" selected>繁体中文</option>
+            </select>
+          </div>
+        </div>
+        <div class="block">
+          <h1 class="l10n-tree">树形目录</h1>
+          <div id="view-tree" class="button view">
+            <img src="/src/img/ui/tree-toggle.svg" alt="view-tree" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧文件信息栏 -->
+      <div id="info" class="">
+        <div class="icon">
+          <img src="/src/img/themes/default/folder.svg" />
+        </div>
+        <div class="block">
+          <div class="label">文件名</div>
+          <div class="time">2021-01-01 00:00</div>
+          <div class="size">0 B</div>
+          <div class="content">
+            <span class="folders">0</span>
+            <span class="l10n-folders">文件夹</span>,
+            <span class="files">0</span> <span class="l10n-files">文件</span>
+          </div>
+        </div>
+        <div class="qrcode"></div>
+      </div>
+
+      <!-- 左侧文件树结构信息 -->
+      <div id="tree" class="hidden"></div>
+    </div>
+
+    <div id="notification" class="hidden">加载中...</div>
+
+    <!-- 预览框 -->
+    <div id="pv-overlay" class="hidden">
+      <div id="pv-container" class="hidden"></div>
+      <div id="pv-spinner" class="hidden">
+        <img class="back" src="/src/img/themes/default/vid.svg" /><img
+          class="spinner"
+          src="/src/img/ui/spinner.svg"
+        />
+      </div>
+
+      <!-- 底部工具栏 -->
+      <div id="pv-bottombar" class="clearfix hof">
+        <ul id="pv-buttons">
+          <li id="pv-bar-close" class="bar-right bar-button">
+            <img src="/src/img/ui/preview-close.svg" />
+          </li>
+          <li id="pv-bar-raw" class="bar-right">
+            <a class="bar-button" download>
+              <img src="/src/img/ui/preview-raw.svg" />
+            </a>
+          </li>
+          <li id="pv-bar-fullscreen" class="bar-right bar-button">
+            <img src="/src/img/ui/preview-fullscreen.svg" />
+          </li>
+          <li id="pv-bar-name" class="bar-left bar-label">文件名</li>
+          <li id="pv-bar-size" class="bar-left bar-label">10 MB</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 上传列表框
+      <div id="upbody" class="hidden">
+      <div class="upherd">
+        <span>上传文件进度</span>
+      </div>
+      <div class="upcontent"></div>
+      <div class="upfoter">收起</div>
+    </div> -->
+
+    <!-- 右键菜单 -->
+    <div id="contextmenu" class="hidden"></div>
+  </body>
+</html>

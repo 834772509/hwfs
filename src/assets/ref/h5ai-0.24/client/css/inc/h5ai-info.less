@@ -1,0 +1,101 @@
+
+body#h5ai-info {
+	font-family: @font-family;
+	margin: 2em auto 4em auto;
+	font-size: 20px;
+	color: @col;
+	max-width: 600px;
+	text-align: center;
+
+	a, a:active, a:visited {
+		color: @col;
+		text-decoration: none;
+		.transition(all 0.2s ease-in-out);
+
+		&:hover {
+			color: @col-hover;
+		}
+	}
+
+	.build-version {
+		display: block;
+	}
+	.build-stamp {
+		display: block;
+		margin-top: 0.3em;
+		font-size: 0.6em;
+		color: #aaa;
+	}
+	.idx-file {
+		margin-top: 1em;
+		font-size: 0.6em;
+		display: block;
+		color: #aaa;
+
+	}
+	code {
+		margin: 0 0.2em;
+		padding: 2px 4px;
+		border-radius: 4px;
+		font-family: @font-family-mono;
+		letter-spacing: 0.1em;
+		background-color: @col-widget-back;
+		border: @border-widget;
+	}
+	h1 {
+		font-size: 3.6em;
+		margin: 0;
+	}
+	h2 {
+		font-size: 1.15em;
+		margin: 2.6em 0 0 0;
+	}
+	p {
+		line-height: 1.6em;
+	}
+	p + p {
+		margin-top: 1.2em;
+	}
+	li {
+		margin-top: 0.6em;
+		line-height: 1.4em;
+	}
+
+	#tests {
+		display: inline-block;
+		list-style-type: none;
+		text-align: left;
+		margin: 0;
+		padding: 0;
+
+		.test-label {
+			display: inline-block;
+			width: 350px;
+		}
+		.test-result {
+			display: inline-block;
+			width: 70px;
+			text-align: right;
+			font-weight: bold;
+			color: #aaa;
+
+			&.test-passed {
+				color: #5a5;
+			}
+			&.test-failed {
+				color: #a55;
+			}
+		}
+		.test-info {
+			margin: 4px 0 12px 12px;
+			font-size: 0.7em;
+			color: #aaa;
+			width: 350px;
+			line-height: 1.2em;
+		}
+	}
+
+	#bottombar {
+		font-size: 13px;
+	}
+}
